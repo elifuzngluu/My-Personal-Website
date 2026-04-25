@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehrim - Kastamonu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Slider resimlerinin boyutunu sabitlemek ve uyumlu hale getirmek için */
+        .carousel-item img {
+            height: 550px;
+            object-fit: cover;
+        }
+        .city-section {
+            padding: 40px 0;
+        }
+        .badge-custom {
+            background-color: #7d0000; /* Kastamonu'nun ağırbaşlı ruhuna uygun bir bordo */
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Hakkımda</a>
+        <a href="ozgecmis.html">Özgeçmiş</a>
+        <a href="sehrim.html" class="active">Şehrim</a>
+        <a href="#">Mirasımız</a>
+        <a href="#">İlgi alanlarım</a>
+        <a href="#">İletişim</a>
+    </nav>
+
+    <div class="container mt-4">
+        <header class="text-center mb-4">
+            <h1 class="display-4">Evliyalar Şehri: Kastamonu</h1>
+            <p class="lead">"Göz nûru, gönül sürûru" - Tarihin ve doğanın kucaklaştığı kadim şehir.</p>
+        </header>
+
+        <div id="kastamonuSlider" class="carousel slide shadow-lg mb-5" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="4"></button>
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="5"></button>
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="6"></button>
+                <button type="button" data-bs-target="#kastamonuSlider" data-bs-slide-to="7"></button>
+            </div>
+            <div class="carousel-inner border-radius-sm">
+                <div class="carousel-item active">
+                    <img src="img/kastamonu1.jpg" class="d-block w-100" alt="Kastamonu Kalesi">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Kastamonu Kalesi</h5>
+                        <p>Şehrin tacı, tarih boyunca pek çok medeniyete ev sahipliği yapmış görkemli yapı.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/kastamonu2.jpg" class="d-block w-100" alt="Valla Kanyonu">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Valla Kanyonu</h5>
+                        <p>Dünyanın en derin kanyonlarından biri, doğa tutkunlarının vazgeçilmezi.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/kastamonu3.jpg" class="d-block w-100" alt="Nasrullah Camii">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Nasrullah Meydanı ve Camii</h5>
+                        <p>Milli Mücadele ruhunun kalbi, Mehmet Akif Ersoy'un vaaz verdiği o tarihi durak.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/kastamonu4.jpg" class="d-block w-100" alt="Ilgaz Dağı">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Ilgaz Dağı</h5>
+                        <p>"Anadolu'nun yüce dağı", kış turizminin ve eşsiz ormanların adresi.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/antik.jpg" class="d-block w-100" alt="Pompeipolis antik kenti">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Pompeipolis Antik Kenti</h5>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/gideros.jpg" class="d-block w-100" alt="Gideros Koyu">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Gideros Koyu</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/konak.jpg" class="d-block w-100" alt="Liva Paşa Konağı">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Liva Paşa Konağı</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/horma.jpg" class="d-block w-100" alt="Horma Kanyonu">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                        <h5>Horma Kanyonu</h5>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#kastamonuSlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#kastamonuSlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <section class="city-section">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h3>Şehir Künyesi</h3>
+                    <p>Batı Karadeniz'in incisi Kastamonu, tarihi İpek Yolu üzerinde yer alan, Osmanlı mimarisini günümüze taşıyan nadir şehirlerden biridir. Kurtuluş Savaşı'ndaki kahramanlıklarıyla (İnebolu-Ankara İstiklal Yolu) Türk tarihinde silinmez bir iz bırakmıştır.</p>
+                    <table class="table table-hover mt-3">
+                        <tbody>
+                            <tr><th>Nüfus</th><td>388.990 (Yaklaşık)</td></tr>
+                            <tr><th>Yüzölçümü</th><td>13.108 km²</td></tr>
+                            <tr><th>Plaka</th><td>37</td></tr>
+                            <tr><th>Meşhur Yemekler</th><td>Banduma, Etli Ekmek, Çekme Helva</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Mutlaka Görülmesi Gereken 4 Yer</h3>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Hürma Şah Kanyonu</h5>
+                                <small>Pınarbaşı</small>
+                            </div>
+                            <p class="mb-1">Ahşap yürüyüş yoluyla kanyonun içinden geçme deneyimi.</p>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Gideros Koyu</h5>
+                                <small>Cide</small>
+                            </div>
+                            <p class="mb-1">Mavinin ve yeşilin en saf hali, Karadeniz'in gizli cenneti.</p>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Pompeipolis Antik Kenti</h5>
+                                <small>Taşköprü</small>
+                            </div>
+                            <p class="mb-1">Roma dönemine ait önemli bir arkeolojik merkez.</p>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Liva Paşa Konağı</h5>
+                                <small>Merkez</small>
+                            </div>
+                            <p class="mb-1">Etnografya Müzesi olarak hizmet veren devasa ahşap yapı.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="text-center py-4 text-white" style="background-color: #1a1a1a;">
+        @provided by Elif Uzunoğlu | Kastamonu Tanıtım Projesi
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
