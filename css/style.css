@@ -238,3 +238,115 @@ h3.border-bottom {
     font-size: 0.78rem;
     color:#6c757d;
 }
+
+/******TARİH ŞERİDİ******/
+.timeline-section{
+    background-color: #081d3b;
+    color: #fff;
+    border-radius: 16px;
+    padding: 50px 40px;
+    margin-bottom: 50px;
+}
+
+.timeline-section .section-title{
+    color:#fff;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.timeline-section .section-subtitle{
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+}
+
+.timeline{
+    position: relative;
+    padding-left: 30px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/*Soldaki sarı çizgi*/
+.timeline::before{
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom:0;
+    width: 2px;
+    background: linear-gradient(to bottom, #c8923a ,transparent);
+}
+
+.timeline-item{
+    position: relative;
+    margin-bottom: 36px;
+}
+
+/***Sarı Çizginin Üstündeki NOktalar*/
+.timeline-item::before{
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #c8923a;
+}
+
+.timeline-item .year{
+    font-size: 0.78rem;
+    color: #c8923a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.timeline-item h5{
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.timeline-item p{
+    font-size: 0.85rem;
+    line-height: 1.7;
+    opacity: 0.7;
+}
+
+/*****SEyahat Notları Kart yapısı*/
+.quote-block{
+    text-align: center;
+    padding: 50px 30px;
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 70px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+.quote-block::before{
+    content: '';
+    font-family: 'Playfair Display' ,serif;
+    font-size: 8rem;
+    color: var(--cream);
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    line-height: 1;
+}
+.quote-block blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--teal);
+    max-width: 700px;
+    margin: 0 auto 16px;
+    line-height: 1.7;
+    position: relative;
+}
+ 
+.quote-block cite {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
