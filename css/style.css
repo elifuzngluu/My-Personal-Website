@@ -350,3 +350,20 @@ h3.border-bottom {
     font-size: 0.85rem;
     color: var(--muted);
 }
+
+.card-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 160px;        /* Sabit yükseklik */
+    background: #fff;
+}
+
+.card-top img {
+    max-width: 160px;     /* Maksimum genişlik */
+    max-height: 160px;    /* Maksimum yükseklik */
+    width: auto;
+    height: auto;
+    object-fit: contain;  /* Oranı korur, taşmaz */
+}
