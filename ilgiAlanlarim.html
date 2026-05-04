@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlgi Alanlarım - Kastamonu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="ilgi-alanlarim">
+
+    <nav>
+        <a href="index.html">Hakkımda</a>
+        <a href="ozgecmis.html">Özgeçmiş</a>
+        <a href="sehrim.html">Şehrim</a>
+        <a href="mirasimiz.html">Mirasımız</a>
+        <a href="ilgiAlanlarim.html" class="active">İlgi Alanlarım</a>
+        <a href="#">İletişim</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero-banner">
+        <div class="container">
+            <h1>🎬 Film & Dizi Dünyam</h1>
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-wrapper">
+        <div class="container">
+            <div class="d-flex mb-3">
+                <input type="text" id="searchInput" class="form-control search-input flex-grow-1"
+                    placeholder="Film veya dizi ara... (örn: Inception, Breaking Bad)">
+                <button class="btn btn-search" onclick="searchContent()">Ara</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAVORİLER -->
+    <div class="container pt-4">
+        <div class="fav-section">
+            <div class="fav-section-title">🎬 Favori Filmlerim</div>
+            <div id="favMovies" class="mb-4">
+                <span class="fav-btn" onclick="searchFav('Fight Club','movie')">Fight Club</span>
+                <span class="fav-btn" onclick="searchFav('The Godfather','movie')">The Godfather</span>
+                <span class="fav-btn" onclick="searchFav('Inception','movie')">Inception</span>
+                <span class="fav-btn" onclick="searchFav('Interstellar','movie')">Interstellar</span>
+                <span class="fav-btn" onclick="searchFav('The Prestige','movie')">The Prestige</span>
+                <span class="fav-btn" onclick="searchFav('Memento','movie')">Memento</span>
+                <span class="fav-btn" onclick="searchFav('Se7en','movie')">Se7en</span>
+                <span class="fav-btn" onclick="searchFav('The Matrix','movie')">The Matrix</span>
+                <span class="fav-btn" onclick="searchFav('Baby Driver','movie')">Baby Driver</span>
+                <span class="fav-btn" onclick="searchFav('The Silence of the Lambs','movie')">The Silence of the Lambs</span>
+                <span class="fav-btn" onclick="searchFav('Shutter Island','movie')">Shutter Island</span>
+                <span class="fav-btn" onclick="searchFav('A Beautiful Mind','movie')">A Beautiful Mind</span>
+                <span class="fav-btn" onclick="searchFav('Bird Box','movie')">Bird Box</span>
+                <span class="fav-btn" onclick="searchFav('Mad Max Fury Road','movie')">Mad Max</span>
+            </div>
+            <div class="fav-section-title">📺 Favori Dizilerim</div>
+            <div id="favTv">
+                <span class="fav-btn tv" onclick="searchFav('The Killing','tv')">The Killing</span>
+                <span class="fav-btn tv" onclick="searchFav('Dark','tv')">Dark</span>
+                <span class="fav-btn tv" onclick="searchFav('Lost','tv')">Lost</span>
+                <span class="fav-btn tv" onclick="searchFav('Game of Thrones','tv')">Game of Thrones</span>
+                <span class="fav-btn tv" onclick="searchFav('Better Call Saul','tv')">Better Call Saul</span>
+                <span class="fav-btn tv" onclick="searchFav('Breaking Bad','tv')">Breaking Bad</span>
+                <span class="fav-btn tv" onclick="searchFav('Person of Interest','tv')">Person of Interest</span>
+                <span class="fav-btn tv" onclick="searchFav('Prison Break','tv')">Prison Break</span>
+                <span class="fav-btn tv" onclick="searchFav('The Imitation Game','tv')">The Imitation Game</span>
+                <span class="fav-btn tv" onclick="searchFav('Inside No 9','tv')">Inside No. 9</span>
+                <span class="fav-btn tv" onclick="searchFav('Mr Robot','tv')">Mr. Robot</span>
+                <span class="fav-btn tv" onclick="searchFav('True Detective','tv')">True Detective</span>
+                <span class="fav-btn tv" onclick="searchFav('Dexter','tv')">Dexter</span>
+                <span class="fav-btn tv" onclick="searchFav('Westworld','tv')">Westworld</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container py-4">
+        <div id="sectionTitle" class="section-title" style="display:none;"></div>
+        <div id="loadingSpinner" class="spinner-wrap d-none">
+            <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Yükleniyor...</span>
+            </div>
+        </div>
+        <div id="movieGrid" class="movie-grid"></div>
+        <div id="emptyState" class="empty-state d-none">
+            <div class="icon">🔍</div>
+            <h5>Sonuç bulunamadı</h5>
+            <p>Farklı bir arama terimi deneyin.</p>
+        </div>
+    </div>
+
+    <!-- TENİS TURNUVALARI -->
+    <div class="container">
+        <div class="tennis-section">
+            <div class="tennis-section-title">🎾 Tenis Turnuvaları</div>
+            <div class="player-quick-btns">
+                <span class="player-quick-btn" onclick="fetchTournament(4424, 'Australian Open')">🇦🇺 Australian Open</span>
+                <span class="player-quick-btn" onclick="fetchTournament(4480, 'Roland Garros')">🇫🇷 Roland Garros</span>
+                <span class="player-quick-btn" onclick="fetchTournament(4481, 'Wimbledon')">🇬🇧 Wimbledon</span>
+                <span class="player-quick-btn" onclick="fetchTournament(4482, 'US Open')">🇺🇸 US Open</span>
+                <span class="player-quick-btn" onclick="fetchTournament(4483, 'ATP Finals')">🏆 ATP Finals</span>
+                <span class="player-quick-btn" onclick="fetchTournament(4484, 'Davis Cup')">🌍 Davis Cup</span>
+            </div>
+            <div id="tennisLoading" class="spinner-wrap d-none">
+                <div class="spinner-border" style="color:#50c878;" role="status"></div>
+            </div>
+            <div id="tennisResults" class="tennis-results"></div>
+            <div id="tennisEmpty" class="tennis-empty d-none">
+                🎾 Henüz bir turnuva seçilmedi. Yukarıdan bir turnuvaya tıklayın.
+            </div>
+        </div>
+    </div>
+
+    <!-- MÜZİK BÖLÜMÜ -->
+    <div class="container">
+        <div class="spotify-section">
+            <div class="spotify-section-title">🎵 Müzik Köşem</div>
+            <div class="spotify-quick-btns">
+                <span class="spotify-quick-btn" onclick="searchMusic('Tarkan')">Tarkan</span>
+                <span class="spotify-quick-btn" onclick="searchMusic('Kalben')">Kalben</span>
+                <span class="spotify-quick-btn" onclick="searchMusic('Kendrick Lamar')">Kendrick Lamar</span>
+                <span class="spotify-quick-btn" onclick="searchMusic('Arctic Monkeys')">Arctic Monkeys</span>
+                <span class="spotify-quick-btn" onclick="searchMusic('Shakira')">Shakira</span>
+                <span class="spotify-quick-btn" onclick="searchMusic('The Weeknd')">The Weeknd</span>
+                <span class="spotify-quick-btn" onclick="searchMusic('Billie Eilish')">Billie Eilish</span>
+                <span class="spotify-quick-btn" onclick="searchMusic('Emircan İğrek')">Emircan İğrek</span>
+            </div>
+            <div class="spotify-search-row">
+                <input type="text" id="musicInput" class="spotify-input"
+                    placeholder="Sanatçı veya şarkı ara...">
+                <button class="btn-spotify" onclick="searchMusic()">Ara</button>
+            </div>
+            <div id="musicLoading" class="spinner-wrap d-none">
+                <div class="spinner-border" style="color:#1ed760;" role="status"></div>
+            </div>
+            <div id="trackGrid" class="track-grid"></div>
+            <div id="musicEmpty" class="spotify-empty d-none">
+                🎵 Sonuç bulunamadı. Farklı bir arama deneyin.
+            </div>
+        </div>
+    </div>
+
+    <div class="powered-by">
+        🎬 <a href="https://www.themoviedb.org" target="_blank">TMDB API</a> &nbsp;|&nbsp;
+        🎾 <a href="https://www.thesportsdb.com" target="_blank">TheSportsDB API</a> &nbsp;|&nbsp;
+        🎵 <a href="https://www.apple.com/itunes" target="_blank">iTunes API</a>
+    </div>
+
+    <!-- DETAIL MODAL -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">—</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <div class="spinner-wrap"><div class="spinner-border text-info"></div></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 text-white" style="background-color: #1a1a1a;">
+        @provided by Elif Uzunoğlu | Kastamonu Tanıtım Projesi
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_KEY  = 'bcbc11cdffd23435d84ce6c465871fcb';
+        const BASE_URL = 'https://api.themoviedb.org/3';
+        const IMG_URL  = 'https://image.tmdb.org/t/p/w500';
+        const BACK_URL = 'https://image.tmdb.org/t/p/w780';
+
+        // ---- FAVORİ ARAMA ----
+        async function searchFav(query, type) {
+            const typeLabel = type === 'tv' ? '📺 Dizi' : '🎬 Film';
+            const titleEl = document.getElementById('sectionTitle');
+            titleEl.textContent = `${typeLabel}: "${query}"`;
+            titleEl.style.display = 'block';
+            document.getElementById('searchInput').value = query;
+            document.getElementById('sectionTitle').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            showLoading();
+            const endpoint = type === 'tv' ? 'tv' : 'movie';
+            const res  = await fetch(`${BASE_URL}/search/${endpoint}?api_key=${API_KEY}&language=tr-TR&query=${encodeURIComponent(query)}`);
+            const data = await res.json();
+            renderGrid(data.results, type);
+        }
+
+        // ---- FILM/DİZİ ARAMA ----
+        async function searchContent() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+            const titleEl = document.getElementById('sectionTitle');
+            titleEl.textContent = `🔍 "${query}" için sonuçlar`;
+            titleEl.style.display = 'block';
+            showLoading();
+            const res  = await fetch(`${BASE_URL}/search/multi?api_key=${API_KEY}&language=tr-TR&query=${encodeURIComponent(query)}`);
+            const data = await res.json();
+            renderGrid(data.results);
+        }
+
+        document.getElementById('searchInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') searchContent();
+        });
+
+        // ---- RENDER ----
+        function renderGrid(items, forcedType = null) {
+            hideLoading();
+            const grid = document.getElementById('movieGrid');
+            grid.innerHTML = '';
+
+            const filtered = (items || []).filter(i => i.media_type !== 'person' && (i.title || i.name)).slice(0, 5);
+
+            if (!filtered.length) {
+                document.getElementById('emptyState').classList.remove('d-none');
+                return;
+            }
+            document.getElementById('emptyState').classList.add('d-none');
+
+            filtered.forEach(item => {
+                const type   = forcedType || item.media_type || 'movie';
+                const title  = item.title || item.name;
+                const year   = (item.release_date || item.first_air_date || '').slice(0, 4);
+                const rating = item.vote_average ? item.vote_average.toFixed(1) : '—';
+                const rClass = !item.vote_average ? '' : item.vote_average >= 7 ? 'high' : item.vote_average < 5 ? 'low' : '';
+
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                card.onclick   = () => openDetail(item.id, type);
+
+                card.innerHTML = `
+                    ${item.poster_path
+                        ? `<img class="movie-poster" src="${IMG_URL}${item.poster_path}" alt="${title}" loading="lazy">`
+                        : `<div class="no-poster">🎬</div>`}
+                    <div class="rating-badge ${rClass}">${rating}</div>
+                    <div class="movie-info">
+                        <div class="movie-title">${title}</div>
+                        <div class="movie-year">${year || '—'} · ${type === 'tv' ? '📺 Dizi' : '🎬 Film'}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ---- DETAIL MODAL ----
+        async function openDetail(id, type) {
+            const modal = new bootstrap.Modal(document.getElementById('detailModal'));
+            document.getElementById('modalTitle').textContent = '…';
+            document.getElementById('modalBody').innerHTML =
+                '<div class="spinner-wrap"><div class="spinner-border text-info"></div></div>';
+            modal.show();
+
+            const res  = await fetch(`${BASE_URL}/${type}/${id}?api_key=${API_KEY}&language=tr-TR`);
+            const d    = await res.json();
+
+            const title    = d.title || d.name;
+            const year     = (d.release_date || d.first_air_date || '').slice(0, 4);
+            const genres   = (d.genres || []).map(g => `<span class="genre-tag">${g.name}</span>`).join('');
+            const runtime  = d.runtime ? `${d.runtime} dk` : (d.episode_run_time?.[0] ? `${d.episode_run_time[0]} dk/bölüm` : '');
+            const seasons  = d.number_of_seasons ? `${d.number_of_seasons} sezon` : '';
+            const overview = d.overview || 'Açıklama bulunamadı.';
+            const rating   = d.vote_average ? d.vote_average.toFixed(1) : '—';
+
+            document.getElementById('modalTitle').textContent = `${title} (${year})`;
+            document.getElementById('modalBody').innerHTML = `
+                ${d.backdrop_path
+                    ? `<img class="detail-backdrop" src="${BACK_URL}${d.backdrop_path}" alt="${title}">`
+                    : ''}
+                <div class="detail-meta mb-2">
+                    <span>⭐ <strong>${rating}</strong></span>
+                    ${runtime ? `<span>⏱ <strong>${runtime}</strong></span>` : ''}
+                    ${seasons ? `<span>📺 <strong>${seasons}</strong></span>` : ''}
+                    ${year    ? `<span>📅 <strong>${year}</strong></span>`    : ''}
+                </div>
+                <div class="mb-3">${genres}</div>
+                <p style="line-height:1.7; color:#ccc;">${overview}</p>
+            `;
+        }
+
+        // ---- TENİS (TheSportsDB) ----
+        const SPORTSDB = 'https://www.thesportsdb.com/api/v1/json/3';
+
+        async function fetchTournament(leagueId, name) {
+            document.getElementById('tennisLoading').classList.remove('d-none');
+            document.getElementById('tennisResults').style.display = 'none';
+            document.getElementById('tennisEmpty').classList.add('d-none');
+
+            try {
+                const [pastRes, upcomingRes] = await Promise.all([
+                    fetch(`${SPORTSDB}/eventspastleague.php?id=${leagueId}`),
+                    fetch(`${SPORTSDB}/eventsnextleague.php?id=${leagueId}`)
+                ]);
+                const pastData     = await pastRes.json();
+                const upcomingData = await upcomingRes.json();
+
+                const past     = (pastData.events     || []).slice(-6).reverse();
+                const upcoming = (upcomingData.events || []).slice(0, 6);
+
+                document.getElementById('tennisLoading').classList.add('d-none');
+
+                if (!past.length && !upcoming.length) {
+                    document.getElementById('tennisEmpty').textContent = `${name} için şu an veri bulunamadı.`;
+                    document.getElementById('tennisEmpty').classList.remove('d-none');
+                    return;
+                }
+                renderTournament(name, past, upcoming);
+            } catch(e) {
+                document.getElementById('tennisLoading').classList.add('d-none');
+                document.getElementById('tennisEmpty').textContent = 'Veri yüklenirken hata oluştu.';
+                document.getElementById('tennisEmpty').classList.remove('d-none');
+            }
+        }
+
+        function renderTournament(name, past, upcoming) {
+            const box = document.getElementById('tennisResults');
+            box.innerHTML = '';
+            box.style.display = 'block';
+
+            box.innerHTML = `<h5 style="color:#50c878; margin-bottom:16px; font-weight:700;">📋 ${name}</h5>`;
+
+            if (upcoming.length) {
+                box.innerHTML += `<div style="color:#b0f0c8; font-weight:600; margin-bottom:10px;">🗓️ Yaklaşan Maçlar</div>`;
+                upcoming.forEach(e => renderMatchCard(box, e, 'upcoming'));
+            }
+
+            if (past.length) {
+                box.innerHTML += `<div style="color:#90c0a0; font-weight:600; margin:16px 0 10px;">📜 Son Maçlar</div>`;
+                past.forEach(e => renderMatchCard(box, e, 'past'));
+            }
+        }
+
+        function renderMatchCard(container, e, type) {
+            const home  = e.strHomeTeam || '?';
+            const away  = e.strAwayTeam || '?';
+            const date  = e.dateEvent   || '';
+            const score = (e.intHomeScore != null && e.intAwayScore != null)
+                ? `<span style="color:#1ed760; font-weight:700; font-size:1rem;">${e.intHomeScore} — ${e.intAwayScore}</span>`
+                : `<span style="color:#aaa; font-size:0.85rem;">Skor bekleniyor</span>`;
+            const venue = e.strVenue ? `🏟️ ${e.strVenue}` : '';
+            const round = e.strRound ? `🔁 Tur: ${e.strRound}` : '';
+
+            const card = document.createElement('div');
+            card.className = 'player-card';
+            card.style.flexDirection = 'column';
+            card.innerHTML = `
+                <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                    <div style="font-weight:700; color:#fff; font-size:0.95rem;">🎾 ${home}</div>
+                    <div style="text-align:center;">
+                        ${score}
+                        <div style="font-size:0.75rem; color:#aaa; margin-top:2px;">vs</div>
+                    </div>
+                    <div style="font-weight:700; color:#fff; font-size:0.95rem; text-align:right;">🎾 ${away}</div>
+                </div>
+                <div style="font-size:0.78rem; color:#90c0a0; margin-top:8px; display:flex; gap:14px; flex-wrap:wrap;">
+                    ${date  ? `<span>📅 ${date}</span>` : ''}
+                    ${venue}
+                    ${round}
+                </div>
+            `;
+            container.appendChild(card);
+        }
+
+        // ---- MÜZİK (iTunes API) ----
+        document.getElementById('musicInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') searchMusic();
+        });
+
+        async function searchMusic(queryOverride) {
+            const query = queryOverride || document.getElementById('musicInput').value.trim();
+            if (!query) return;
+
+            document.getElementById('musicLoading').classList.remove('d-none');
+            document.getElementById('trackGrid').innerHTML = '';
+            document.getElementById('musicEmpty').classList.add('d-none');
+
+            try {
+                const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=5`);
+                const data = await res.json();
+                const tracks = data.results || [];
+
+                document.getElementById('musicLoading').classList.add('d-none');
+
+                if (!tracks.length) {
+                    document.getElementById('musicEmpty').classList.remove('d-none');
+                    return;
+                }
+                renderTracks(tracks);
+            } catch (e) {
+                document.getElementById('musicLoading').classList.add('d-none');
+                document.getElementById('musicEmpty').classList.remove('d-none');
+            }
+        }
+
+        function renderTracks(tracks) {
+            const grid = document.getElementById('trackGrid');
+            grid.innerHTML = '';
+
+            tracks.forEach(track => {
+                const name   = track.trackName;
+                const artist = track.artistName;
+                const cover  = track.artworkUrl100;
+
+                const card = document.createElement('div');
+                card.className = 'track-card';
+                card.innerHTML = `
+                    <img class="track-cover" src="${cover}" alt="${name}">
+                    <div class="track-info">
+                        <div class="track-name">${name}</div>
+                        <div class="track-artist">${artist}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ---- HELPERS ----
+        function showLoading() {
+            document.getElementById('movieGrid').innerHTML = '';
+            document.getElementById('emptyState').classList.add('d-none');
+            document.getElementById('loadingSpinner').classList.remove('d-none');
+        }
+        function hideLoading() {
+            document.getElementById('loadingSpinner').classList.add('d-none');
+        }
+    </script>
+</body>
+</html>
