@@ -6,83 +6,7 @@
     <title>İletişim</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .contact-wrapper {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-        }
-        .contact-wrapper h1 {
-            color: #7eb8d4;
-            text-align: center;
-            margin-bottom: 8px;
-        }
-        .contact-wrapper .subtitle {
-            text-align: center;
-            color: #8a9bb0;
-            margin-bottom: 36px;
-        }
-        .form-box {
-            background: #1a2535;
-            border: 1px solid #2d3f55;
-            border-radius: 16px;
-            padding: 36px;
-        }
-        .form-label { color: #c8d8e8; font-weight: 500; margin-bottom: 5px; }
-        .form-control, .form-select {
-            background: #0d1b2a;
-            border: 1px solid #2d3f55;
-            color: #e0eaf5;
-            border-radius: 8px;
-        }
-        .form-control:focus, .form-select:focus {
-            background: #0d1b2a;
-            border-color: #7eb8d4;
-            color: #e0eaf5;
-            box-shadow: 0 0 0 3px rgba(126,184,212,0.15);
-        }
-        .form-control::placeholder { color: #556a80; }
-        .form-select option { background: #0d1b2a; }
-        .form-check-label { color: #c8d8e8; }
-        .form-check-input:checked { background-color: #7eb8d4; border-color: #7eb8d4; }
-        textarea.form-control { min-height: 110px; resize: vertical; }
-        .error-msg { color: #ff6b6b; font-size: 0.80rem; margin-top: 4px; min-height: 18px; }
-        .btn-js {
-            background: #f0db4f;
-            color: #222;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            padding: 11px 28px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-js:hover { background: #d4c03a; }
-        .btn-vue {
-            background: #42b883;
-            color: #fff;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            padding: 11px 28px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-vue:hover { background: #35a070; }
-        .badge-js  { background:#f0db4f; color:#222; font-size:0.70rem; padding:3px 9px; border-radius:20px; vertical-align:middle; margin-left:6px; }
-        .badge-vue { background:#42b883; color:#fff; font-size:0.70rem; padding:3px 9px; border-radius:20px; vertical-align:middle; margin-left:6px; }
-        .divider { border-color: #2d3f55; margin: 24px 0; }
-        .success-bar {
-            background: #1a3a2a;
-            border: 1px solid #42b883;
-            color: #42b883;
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin-bottom: 20px;
-            display: none;
-            font-weight: 600;
-        }
-    </style>
+    
 </head>
 <body>
     <nav>
@@ -108,28 +32,36 @@
                     <!-- Ad Soyad -->
                     <div class="col-md-6">
                         <label class="form-label" for="ad">Ad Soyad *</label>
-                        <input type="text" class="form-control" id="ad" name="ad_soyad" placeholder="lütfen adınızı ve soyadınızı girin">
+                        <input type="text" class="form-control" id="ad" name="ad_soyad"
+                               placeholder="lütfen adınızı ve soyadınızı girin"
+                               v-model="form.ad">
                         <div class="error-msg" id="err_ad"></div>
                     </div>
 
                     <!-- E-posta -->
                     <div class="col-md-6">
                         <label class="form-label" for="email">E-posta *</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="ornek@gmail.com">
+                        <input type="email" class="form-control" id="email" name="email"
+                               placeholder="ornek@gmail.com"
+                               v-model="form.email">
                         <div class="error-msg" id="err_email"></div>
                     </div>
 
                     <!-- Telefon -->
                     <div class="col-md-6">
                         <label class="form-label" for="tel">Telefon Numarası * <small style="color:#8a9bb0;"></small></label>
-                        <input type="tel" class="form-control" id="tel" name="telefon" placeholder="05XX XXX XXXX" maxlength="13" oninput="formatPhone(this)">
+                        <input type="tel" class="form-control" id="tel" name="telefon"
+                               placeholder="05XX XXX XXXX" maxlength="13"
+                               oninput="formatPhone(this)"
+                               v-model="form.tel">
                         <div class="error-msg" id="err_tel"></div>
                     </div>
 
                     <!-- Konu (Select) -->
                     <div class="col-md-6">
                         <label class="form-label" for="konu">Konu </label>
-                        <select class="form-select" id="konu" name="konu">
+                        <select class="form-select" id="konu" name="konu"
+                                v-model="form.konu">
                             <option value="">-- Konu seçiniz --</option>
                             <option value="is_birligi">İş Birliği</option>
                             <option value="proje">Proje Teklifi</option>
@@ -139,10 +71,12 @@
                         <div class="error-msg" id="err_konu"></div>
                     </div>
 
-                    <!-- Mesaj (Textarea) -->
+                    <!-- Mesaj  -->
                     <div class="col-12">
                         <label class="form-label" for="mesaj">Mesaj *</label>
-                        <textarea class="form-control" id="mesaj" name="mesaj" placeholder="Mesajınızı buraya yazın..."></textarea>
+                         <textarea class="form-control" id="mesaj" name="mesaj"
+                                  placeholder="Mesajınızı buraya yazın..."
+                                  v-model="form.mesaj"></textarea>
                         <div class="error-msg" id="err_mesaj"></div>
                     </div>
 
@@ -185,9 +119,11 @@
                     </div>
 
                     <!-- KVKK (Checkbox - zorunlu) -->
-                    <div class="col-12">
+                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="kvkk" name="kvkk" value="1">
+                            <!-- v-model eklendi -->
+                            <input class="form-check-input" type="checkbox" id="kvkk" name="kvkk" value="1"
+                                   v-model="form.kvkk">
                             <label class="form-check-label" for="kvkk">
                                 Kişisel verilerimin işlenmesine onay veriyorum (KVKK). *
                             </label>
@@ -345,17 +281,9 @@
             }
         }).mount('#vueApp');
 
-        function validateVue() {
-            // DOM → Vue reactive state senkronizasyonu
-            vueApp.form.ad    = document.getElementById('ad').value.trim();
-            vueApp.form.email = document.getElementById('email').value.trim();
-            vueApp.form.tel   = document.getElementById('tel').value.trim();
-            vueApp.form.konu  = document.getElementById('konu').value;
-            vueApp.form.mesaj = document.getElementById('mesaj').value.trim();
-            vueApp.form.kvkk  = document.getElementById('kvkk').checked;
-
+        function validateVue() {   
             clearErrors();
-            const errs = vueApp.errors;  // computed sonucu
+            const errs = vueApp.errors;  
             let valid = true;
 
             if (errs.ad)    { showError('err_ad',    errs.ad);    valid = false; }

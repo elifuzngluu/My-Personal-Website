@@ -13,7 +13,7 @@ $sifre     = $_POST['sifre'] ?? '';
 if ($kullanici === $gecerli_kullanici && $sifre === $gecerli_sifre) {
     // Giriş başarılı: Oturum değişkenini ata
     $_SESSION['giris'] = true; 
-    
+    $_SESSION['ogrenci_no'] = $sifre;
     // Doğrudan ana sayfaya veya başarı mesajı gösteren sayfaya yönlendir
     header("Location: basarili.php"); 
     exit;

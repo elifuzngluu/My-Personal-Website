@@ -37,69 +37,7 @@ $konu_label = $konu_map[$konu] ?? $konu;
     <title>Form Sonucu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .result-wrapper {
-            max-width: 680px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-        .result-box {
-            background: #1a2535;
-            border: 1px solid #2d3f55;
-            border-radius: 16px;
-            padding: 36px;
-        }
-        .result-box h2 {
-            color: #42b883;
-            margin-bottom: 6px;
-        }
-        .result-box .subtitle {
-            color: #8a9bb0;
-            margin-bottom: 28px;
-            font-size: 0.9rem;
-        }
-        .data-row {
-            display: flex;
-            border-bottom: 1px solid #2d3f55;
-            padding: 12px 0;
-            gap: 16px;
-        }
-        .data-row:last-of-type { border-bottom: none; }
-        .data-label {
-            color: #7eb8d4;
-            font-weight: 600;
-            min-width: 160px;
-            font-size: 0.88rem;
-        }
-        .data-value {
-            color: #e0eaf5;
-            font-size: 0.95rem;
-            word-break: break-word;
-        }
-        .badge-method {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .badge-native { background: #f0db4f; color: #222; }
-        .badge-vue    { background: #42b883; color: #fff; }
-        .btn-back {
-            margin-top: 24px;
-            background: #7eb8d4;
-            color: #0d1b2a;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 28px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.2s;
-        }
-        .btn-back:hover { background: #5aa0c0; color: #fff; }
-    </style>
+    
 </head>
 <body>
     <nav>
